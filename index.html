@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyas Biswas — Web Developer & Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #243b2a;
+    --green-light: #2f4a35;
+    --orange: #c46a3a;
+    --yellow: #f2b21c;
+    --cream: #f1e8da;
+    --black: #111;
+    --white: #fff;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 60px;
+    background: rgba(36,59,42,0.96);
+    backdrop-filter: blur(8px);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--cream); text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .logo-star { color: var(--orange); font-size: 1.1rem; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--cream); text-decoration: none; font-size: 0.88rem;
+    font-weight: 400; letter-spacing: 0.04em; opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--yellow) !important; color: var(--black) !important;
+    padding: 10px 22px; border-radius: 50px;
+    font-weight: 500 !important; opacity: 1 !important;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; background: var(--green);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 140px 60px 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(100px, 16vw, 200px); font-weight: 900;
+    color: transparent; -webkit-text-stroke: 1px rgba(241,232,218,0.07);
+    white-space: nowrap; user-select: none; pointer-events: none;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: var(--white);
+    padding: 7px 16px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 82px);
+    color: var(--cream); line-height: 1.05;
+    font-weight: 900; letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero-title em { color: var(--yellow); font-style: italic; }
+
+  .hero-tagline {
+    font-size: 1rem; color: rgba(241,232,218,0.7);
+    max-width: 380px; line-height: 1.7; margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow); color: var(--black);
+    padding: 14px 30px; border-radius: 50px;
+    font-weight: 500; font-size: 0.9rem; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,178,28,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    padding: 13px 28px; border-radius: 50px;
+    border: 1.5px solid rgba(241,232,218,0.35);
+    font-size: 0.9rem; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--cream); color: var(--cream); }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 50px;
+    padding-top: 30px; border-top: 1px solid rgba(241,232,218,0.15);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900; color: var(--yellow);
+    display: block; line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: rgba(241,232,218,0.6); margin-top: 4px; letter-spacing: 0.04em; }
+
+  /* Hero Right */
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; justify-content: flex-end; align-items: center;
+  }
+  .photo-frame {
+    position: relative; width: 320px; height: 400px;
+  }
+  .photo-bg {
+    position: absolute; top: 20px; right: -20px;
+    width: 280px; height: 360px;
+    background: var(--orange); border-radius: 4px;
+  }
+  .photo-placeholder {
+    position: absolute; top: 0; right: 0;
+    width: 280px; height: 360px;
+    background: linear-gradient(135deg, #3a5c42, #243b2a);
+    border-radius: 4px; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border: 2px solid rgba(242,178,28,0.3);
+  }
+  .photo-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 900; color: var(--yellow);
+    opacity: 0.9; line-height: 1;
+  }
+  .photo-name-small {
+    font-size: 0.75rem; color: rgba(241,232,218,0.6);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-top: 8px;
+  }
+  .photo-tag {
+    position: absolute; bottom: -18px; left: -30px;
+    background: var(--yellow); color: var(--black);
+    padding: 8px 18px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; white-space: nowrap;
+  }
+  .photo-tag-2 {
+    position: absolute; top: -16px; right: 20px;
+    background: var(--black); color: var(--cream);
+    padding: 8px 18px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 400; white-space: nowrap;
+  }
+
+  .hero-socials {
+    position: absolute; right: -50px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 16px; align-items: center;
+  }
+  .social-line {
+    width: 1px; height: 40px; background: rgba(241,232,218,0.25);
+  }
+  .social-link {
+    color: rgba(241,232,218,0.6); font-size: 0.75rem;
+    writing-mode: vertical-rl; text-orientation: mixed;
+    text-decoration: none; letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .social-link:hover { color: var(--yellow); }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    display: flex; justify-content: center;
+    margin-top: -28px; position: relative; z-index: 10;
+  }
+  .scroll-btn {
+    width: 80px; height: 80px; background: var(--yellow);
+    border-radius: 50%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 500; color: var(--black);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    cursor: pointer; text-decoration: none;
+    animation: bounce 2s infinite;
+    box-shadow: 0 8px 30px rgba(242,178,28,0.4);
+  }
+  .scroll-btn span { display: block; text-align: center; line-height: 1.2; }
+  .scroll-arrow { font-size: 1rem; margin-top: 3px; }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 60px; }
+  .section-label {
+    display: inline-block; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center; margin-top: 60px;
+  }
+  .about-text p {
+    font-size: 1rem; line-height: 1.8; color: #444;
+    margin-bottom: 20px; font-weight: 300;
+  }
+  .about-text p strong { color: var(--black); font-weight: 500; }
+  .contact-card {
+    background: var(--black); color: var(--cream);
+    border-radius: 16px; padding: 36px;
+    margin-top: 32px;
+  }
+  .contact-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; margin-bottom: 20px; color: var(--yellow);
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.88rem; margin-bottom: 12px;
+    color: rgba(241,232,218,0.85);
+  }
+  .contact-icon { color: var(--orange); font-size: 1rem; min-width: 20px; }
+
+  .about-image-wrap { position: relative; }
+  .about-img-bg {
+    position: absolute; top: 20px; left: 20px;
+    width: calc(100% - 20px); height: calc(100% - 20px);
+    background: var(--green); border-radius: 8px;
+  }
+  .about-img-placeholder {
+    position: relative; z-index: 1;
+    background: linear-gradient(135deg, #f1e8da, #e8d8c0);
+    border-radius: 8px; height: 420px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    border: 2px solid var(--orange);
+    overflow: hidden;
+  }
+  .about-img-placeholder .big-initial {
+    font-family: 'Playfair Display', serif;
+    font-size: 100px; color: var(--green); opacity: 0.15;
+    font-weight: 900; line-height: 1;
+  }
+  .about-img-label {
+    font-size: 0.75rem; letter-spacing: 0.12em;
+    color: var(--orange); text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ── EXPERIENCE YELLOW CARD ── */
+  #experience { background: var(--green); }
+  #experience .section-title { color: var(--cream); }
+  #experience .section-label { color: var(--yellow); }
+
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 24px; margin-top: 50px;
+  }
+  .exp-card {
+    background: var(--yellow); border-radius: 16px;
+    padding: 36px 30px;
+  }
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--black);
+    margin-bottom: 8px;
+  }
+  .exp-type {
+    font-size: 0.8rem; color: rgba(0,0,0,0.55);
+    font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 18px;
+  }
+  .exp-desc {
+    font-size: 0.88rem; color: rgba(0,0,0,0.7);
+    line-height: 1.7;
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag {
+    background: rgba(0,0,0,0.1); color: var(--black);
+    padding: 5px 14px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 500;
+  }
+
+  /* Work Process */
+  .process-list { margin-top: 50px; }
+  .process-item {
+    display: grid; grid-template-columns: 56px 1fr;
+    gap: 24px; align-items: start;
+    padding: 28px 0; border-top: 1px solid rgba(241,232,218,0.12);
+  }
+  .process-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; color: var(--yellow); font-weight: 900;
+    line-height: 1;
+  }
+  .process-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--cream); margin-bottom: 6px;
+  }
+  .process-desc { font-size: 0.88rem; color: rgba(241,232,218,0.6); line-height: 1.6; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--cream); }
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; margin-top: 50px;
+  }
+  .skill-group-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 24px; color: var(--green);
+  }
+  .skill-item { margin-bottom: 18px; }
+  .skill-name {
+    display: flex; justify-content: space-between;
+    font-size: 0.88rem; font-weight: 500; margin-bottom: 8px;
+  }
+  .skill-bar {
+    height: 6px; background: rgba(0,0,0,0.1); border-radius: 3px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%; background: var(--orange); border-radius: 3px;
+    transform-origin: left;
+    transition: width 1.2s ease;
+  }
+  .skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .skill-tag {
+    background: var(--green); color: var(--cream);
+    padding: 8px 18px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 400;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--green); }
+  #education .section-title { color: var(--cream); }
+  #education .section-label { color: var(--yellow); }
+  .edu-list { margin-top: 50px; }
+  .edu-item {
+    display: grid; grid-template-columns: 100px 1fr;
+    gap: 30px; padding: 30px 0;
+    border-top: 1px solid rgba(241,232,218,0.12);
+    align-items: start;
+  }
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem; color: var(--yellow);
+    letter-spacing: 0.05em; padding-top: 4px;
+  }
+  .edu-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--cream);
+    font-weight: 700; margin-bottom: 5px;
+  }
+  .edu-degree { font-size: 0.88rem; color: rgba(241,232,218,0.6); line-height: 1.5; }
+
+  /* ── LANGUAGES & HOBBIES ── */
+  #extras { background: var(--cream); }
+  .extras-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; margin-top: 50px;
+  }
+  .lang-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    margin-top: 24px;
+  }
+  .lang-card {
+    background: var(--green); color: var(--cream);
+    border-radius: 12px; padding: 20px 16px; text-align: center;
+  }
+  .lang-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; margin-bottom: 5px;
+  }
+  .lang-level { font-size: 0.75rem; color: var(--yellow); }
+  .hobby-list { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .hobby-item {
+    background: var(--black); color: var(--cream);
+    padding: 9px 20px; border-radius: 50px;
+    font-size: 0.82rem;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); color: var(--cream); }
+  #contact .section-title { color: var(--cream); }
+  #contact .section-label { color: var(--yellow); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; margin-top: 50px; align-items: center;
+  }
+  .contact-left p {
+    font-size: 1rem; line-height: 1.8; color: rgba(241,232,218,0.7);
+    margin-bottom: 32px; font-weight: 300;
+  }
+  .contact-details { display: flex; flex-direction: column; gap: 14px; }
+  .contact-detail-item {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.9rem; color: rgba(241,232,218,0.85);
+  }
+  .cd-icon {
+    width: 40px; height: 40px; background: var(--green-light);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-right {
+    background: var(--green); border-radius: 20px; padding: 48px;
+  }
+  .contact-right h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--cream); margin-bottom: 30px;
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(241,232,218,0.6);
+    margin-bottom: 8px;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%; background: rgba(241,232,218,0.08);
+    border: 1px solid rgba(241,232,218,0.2);
+    border-radius: 10px; padding: 14px 18px;
+    color: var(--cream); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--yellow);
+  }
+  .form-group textarea { height: 110px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green); color: rgba(241,232,218,0.55);
+    text-align: center; padding: 28px 60px;
+    font-size: 0.8rem; display: flex;
+    justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream); font-size: 1rem;
+  }
+  .footer-logo span { color: var(--orange); }
+
+  /* ── DIVIDER ── */
+  .ticker-strip {
+    background: var(--black); padding: 16px 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex; gap: 60px;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem; color: rgba(241,232,218,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .ticker-item span { color: var(--orange); margin-right: 60px; }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  * { cursor: none !important; }
+
+  #cursor-ring {
+    position: fixed; top: 0; left: 0; z-index: 9999;
+    width: 36px; height: 36px;
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease,
+                border-color 0.25s ease, background 0.2s ease,
+                opacity 0.3s ease;
+    mix-blend-mode: difference;
+  }
+
+  #cursor-dot {
+    position: fixed; top: 0; left: 0; z-index: 10000;
+    width: 7px; height: 7px;
+    background: var(--yellow);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease, background 0.2s ease;
+  }
+
+  #cursor-ring.hovering {
+    width: 58px; height: 58px;
+    background: rgba(242, 178, 28, 0.12);
+    border-color: var(--orange);
+  }
+
+  #cursor-ring.clicking {
+    width: 28px; height: 28px;
+    background: rgba(242, 178, 28, 0.3);
+  }
+
+  #cursor-dot.clicking {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 16px; }
+    section { padding: 70px 24px; }
+    #hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 50px; }
+    .hero-right { justify-content: center; }
+    .hero-socials { display: none; }
+    .about-grid, .contact-grid, .skills-grid, .extras-grid { grid-template-columns: 1fr; gap: 40px; }
+    .exp-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-ring"></div>
+<div id="cursor-dot"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#hero">
+    <span class="logo-star">✦</span> Priyas Biswas
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About me</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch!</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">PORTFOLIO</div>
+
+  <div class="hero-left">
+    <div class="hero-badge">✦ Available for Projects</div>
+    <h1 class="hero-title">
+      Hello, I'm<br><em>Priyas Biswas</em>
+    </h1>
+    <p class="hero-tagline">
+      Helping you create stunning websites for your café, restaurant, clinic, workshop & portfolio — fast, modern & mobile-friendly.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get in touch!</a>
+      <a href="#experience" class="btn-outline">View my work →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">2+</span>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <span class="stat-num">10+</span>
+        <div class="stat-label">Cafés Launched</div>
+      </div>
+      <div>
+        <span class="stat-num">20+</span>
+        <div class="stat-label">Sites Delivered</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-frame">
+      <div class="photo-bg"></div>
+      <div class="photo-placeholder">
+        <div class="photo-initials">PB</div>
+        <div class="photo-name-small">Priyas Biswas</div>
+      </div>
+      <div class="photo-tag">Web Developer ✦</div>
+      <div class="photo-tag-2">West Bengal, India</div>
+    </div>
+    <div class="hero-socials">
+      <div class="social-line"></div>
+      <a class="social-link" href="mailto:nayanbiswas@gmail.com">Email</a>
+      <div class="social-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL -->
+<div class="scroll-indicator">
+  <a href="#about" class="scroll-btn">
+    <span>Scroll</span><span>down</span>
+    <span class="scroll-arrow">↓</span>
+  </a>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">✦ Who I Am</div>
+  <h2 class="section-title">Hello, I'm<br>Priyas Biswas!</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a <strong>Web Developer & Web Designer</strong> with <strong>2+ years of experience</strong> creating modern, responsive, and business-focused websites. I've worked with many clients and successfully developed websites for <strong>10+ cafés, 2 clinics,</strong> and several restaurants.</p>
+      <p>I specialize in building websites using <strong>modern AI-powered tools and website builders</strong>, delivering fast and efficient results. My basic coding knowledge lets me fix technical issues, customize designs, and optimize performance whenever needed.</p>
+      <p>I focus on <strong>clean UI, fast-loading websites,</strong> and mobile-friendly designs that improve user experience and help businesses grow online.</p>
+      <div class="contact-card">
+        <h4>✦ Contact Details</h4>
+        <div class="contact-item"><span class="contact-icon">📍</span> West Bengal, Nadia, Majdia</div>
+        <div class="contact-item"><span class="contact-icon">📧</span> nayanbiswas@gmail.com</div>
+        <div class="contact-item"><span class="contact-icon">📞</span> +91 73639 83344</div>
+        <div class="contact-item"><span class="contact-icon">🎂</span> Age 32</div>
+      </div>
+    </div>
+    <div class="about-image-wrap">
+      <div class="about-img-bg"></div>
+      <div class="about-img-placeholder">
+        <div class="big-initial">PB</div>
+        <div class="about-img-label">✦ Priyas Biswas — Web Developer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <span class="ticker-item">Web Development <span>✦</span></span>
+    <span class="ticker-item">Responsive Design <span>✦</span></span>
+    <span class="ticker-item">UI / UX Design <span>✦</span></span>
+    <span class="ticker-item">AI-Powered Builds <span>✦</span></span>
+    <span class="ticker-item">Café Websites <span>✦</span></span>
+    <span class="ticker-item">Clinic Websites <span>✦</span></span>
+    <span class="ticker-item">Restaurant Sites <span>✦</span></span>
+    <span class="ticker-item">Web Development <span>✦</span></span>
+    <span class="ticker-item">Responsive Design <span>✦</span></span>
+    <span class="ticker-item">UI / UX Design <span>✦</span></span>
+    <span class="ticker-item">AI-Powered Builds <span>✦</span></span>
+    <span class="ticker-item">Café Websites <span>✦</span></span>
+    <span class="ticker-item">Clinic Websites <span>✦</span></span>
+    <span class="ticker-item">Restaurant Sites <span>✦</span></span>
+  </div>
+</div>
+
+<!-- EXPERIENCE / WORK -->
+<section id="experience">
+  <div class="section-label">✦ What I Do</div>
+  <h2 class="section-title" style="color:var(--cream)">Experience &<br>Work Process</h2>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-role">Web Developer</div>
+      <div class="exp-type">Freelance · 2+ Years</div>
+      <p class="exp-desc">Building complete websites for cafés, restaurants, clinics, and personal portfolios using modern AI-powered tools and platforms.</p>
+      <div class="exp-tags">
+        <span class="tag">Lovable</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">AI Tools</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-role">Web Designer</div>
+      <div class="exp-type">Freelance · Ongoing</div>
+      <p class="exp-desc">Creating visually stunning, brand-aligned UI/UX designs. Focused on mobile-first, fast-loading, and conversion-optimized layouts.</p>
+      <div class="exp-tags">
+        <span class="tag">UI Design</span>
+        <span class="tag">UX</span>
+        <span class="tag">Branding</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-role">Tech Support</div>
+      <div class="exp-type">Bug Fixing & Optimization</div>
+      <p class="exp-desc">Using HTML, CSS, and basic coding to fix issues, customize features, and improve website performance for clients post-launch.</p>
+      <div class="exp-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Performance</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="process-list">
+    <div style="margin-top:50px; margin-bottom:10px">
+      <div class="section-label" style="color:var(--yellow)">✦ How I Work</div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">01</div>
+      <div><div class="process-title">Requirement Discussion</div><div class="process-desc">Understanding the client's business, goals, and website needs.</div></div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">02</div>
+      <div><div class="process-title">Design Planning</div><div class="process-desc">Creating layout, structure, and UI design tailored to the brand.</div></div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">03</div>
+      <div><div class="process-title">Website Development</div><div class="process-desc">Building the website using modern development tools and AI-assisted platforms.</div></div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">04</div>
+      <div><div class="process-title">Customization & Fixes</div><div class="process-desc">Using coding knowledge to fix issues or customize features if required.</div></div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">05</div>
+      <div><div class="process-title">Testing & Launch</div><div class="process-desc">Checking responsiveness, performance, usability — then deploying with full client support.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">✦ What I Know</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-group-title">Core Skills</div>
+      <div class="skill-item">
+        <div class="skill-name"><span>AI-Assisted Website Development</span><span>95%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Responsive Web Design</span><span>90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>UI / UX Design</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Website Customization</span><span>88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name"><span>Performance Optimization</span><span>80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">Lovable</span>
+        <span class="skill-tag">Emergent</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">Basic JavaScript</span>
+        <span class="skill-tag">AI Tools</span>
+        <span class="skill-tag">WordPress</span>
+        <span class="skill-tag">Mobile-First Design</span>
+        <span class="skill-tag">Business Websites</span>
+        <span class="skill-tag">Bug Fixing</span>
+        <span class="skill-tag">Problem Solving</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">✦ My Background</div>
+  <h2 class="section-title" style="color:var(--cream)">Education</h2>
+  <div class="edu-list">
+    <div class="edu-item">
+      <div class="edu-year">10th Grade</div>
+      <div>
+        <div class="edu-name">Secondary Education</div>
+        <div class="edu-degree">Completed secondary school education with a strong academic foundation.</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">12th Grade</div>
+      <div>
+        <div class="edu-name">Higher Secondary Education</div>
+        <div class="edu-degree">Completed higher secondary education (H.S.), West Bengal Board.</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">College</div>
+      <div>
+        <div class="edu-name">College (Pursued)</div>
+        <div class="edu-degree">Pursued college studies and chose to focus on practical web development experience and real-world client projects — building skills that matter most.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES & HOBBIES -->
+<section id="extras">
+  <div class="section-label">✦ More About Me</div>
+  <h2 class="section-title">Languages &<br>Interests</h2>
+  <div class="extras-grid">
+    <div>
+      <div class="skill-group-title">Languages I Speak</div>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <div class="lang-name">বাংলা</div>
+          <div class="lang-level">Native</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name">English</div>
+          <div class="lang-level">Fluent</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name">हिंदी</div>
+          <div class="lang-level">Conversational</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Hobbies & Interests</div>
+      <div class="hobby-list">
+        <span class="hobby-item">🏍️ Motorcycles</span>
+        <span class="hobby-item">🤖 AI & Tech</span>
+        <span class="hobby-item">🎨 Design</span>
+        <span class="hobby-item">📱 Content Creation</span>
+        <span class="hobby-item">🌐 Web Exploration</span>
+        <span class="hobby-item">📸 Photography</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">✦ Let's Work Together</div>
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p>Have a project in mind? Whether it's a café website, restaurant, clinic, or a personal portfolio — I'd love to help bring your vision to life. Let's talk!</p>
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <div class="cd-icon">📍</div>
+          <div>West Bengal, Nadia, Majdia</div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">📧</div>
+          <div>nayanbiswas@gmail.com</div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">📞</div>
+          <div>+91 73639 83344</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3>Send a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="e.g. Riya Sharma">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project…"></textarea>
+      </div>
+      <a href="mailto:nayanbiswas@gmail.com" class="btn-primary" style="display:inline-block; margin-top:8px">Send Message ✦</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">✦ <span>Priyas</span> Biswas</div>
+  <div>© 2025 Priyas Biswas. All rights reserved.</div>
+  <div>West Bengal, India</div>
+</footer>
+
+<script>
+  // ── CUSTOM CURSOR ──
+  const ring = document.getElementById('cursor-ring');
+  const dot  = document.getElementById('cursor-dot');
+
+  let ringX = 0, ringY = 0;
+  let dotX  = 0, dotY  = 0;
+  let mouseX = 0, mouseY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    // Dot follows instantly
+    dotX = mouseX; dotY = mouseY;
+    dot.style.left = dotX + 'px';
+    dot.style.top  = dotY + 'px';
+  });
+
+  // Ring follows with smooth lag
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on interactive elements
+  const hoverTargets = 'a, button, input, textarea, .exp-card, .lang-card, .hobby-item, .skill-tag, .btn-primary, .btn-outline, .nav-cta';
+  document.querySelectorAll(hoverTargets).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+  });
+
+  // Click effect
+  document.addEventListener('mousedown', () => {
+    ring.classList.add('clicking');
+    dot.classList.add('clicking');
+  });
+  document.addEventListener('mouseup', () => {
+    ring.classList.remove('clicking');
+    dot.classList.remove('clicking');
+  });
+
+  // Hide on leave, show on enter
+  document.addEventListener('mouseleave', () => { ring.style.opacity = '0'; dot.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { ring.style.opacity = '1'; dot.style.opacity = '1'; });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ── FADE-IN SECTIONS ──
+  const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.exp-card, .edu-item, .process-item, .lang-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    fadeObs.observe(el);
+  });
+</script>
+</body>
+</html>
