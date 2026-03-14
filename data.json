@@ -1,1 +1,197 @@
+{
+  "site": {
+    "pageTitle": "Priyas Biswas — Web Developer & Designer",
+    "logoStar": "✦",
+    "logoText": "Priyas Biswas"
+  },
 
+  "nav": {
+    "links": [
+      { "text": "About me",      "href": "#about",      "cta": false },
+      { "text": "Work",          "href": "#experience", "cta": false },
+      { "text": "Skills",        "href": "#skills",     "cta": false },
+      { "text": "Get in touch!", "href": "#contact",    "cta": true  }
+    ]
+  },
+
+  "hero": {
+    "badge": "✦ Available for Projects",
+    "titleLine1": "Hello, I'm",
+    "titleEm":    "Priyas Biswas",
+    "bgText":     "PORTFOLIO",
+    "tagline":    "Helping you create stunning websites for your café, restaurant, clinic, workshop & portfolio — fast, modern & mobile-friendly.",
+    "buttons": [
+      { "text": "Get in touch!",  "href": "#contact",    "type": "primary" },
+      { "text": "View my work →", "href": "#experience", "type": "outline" }
+    ],
+    "stats": [
+      { "num": "2+",  "label": "Years Experience" },
+      { "num": "10+", "label": "Cafés Launched"   },
+      { "num": "20+", "label": "Sites Delivered"  }
+    ],
+    "photo": {
+      "initials":   "PB",
+      "name":       "Priyas Biswas",
+      "tagBottom":  "Web Developer ✦",
+      "tagTop":     "West Bengal, India"
+    },
+    "socials": [
+      { "text": "Email", "href": "mailto:nayanbiswas@gmail.com" }
+    ]
+  },
+
+  "about": {
+    "sectionLabel": "✦ Who I Am",
+    "title":        "Hello, I'm\nPriyas Biswas!",
+    "paragraphs": [
+      "I am a <strong>Web Developer & Web Designer</strong> with <strong>2+ years of experience</strong> creating modern, responsive, and business-focused websites. I've worked with many clients and successfully developed websites for <strong>10+ cafés, 2 clinics,</strong> and several restaurants.",
+      "I specialize in building websites using <strong>modern AI-powered tools and website builders</strong>, delivering fast and efficient results. My basic coding knowledge lets me fix technical issues, customize designs, and optimize performance whenever needed.",
+      "I focus on <strong>clean UI, fast-loading websites,</strong> and mobile-friendly designs that improve user experience and help businesses grow online."
+    ],
+    "contactCard": {
+      "title": "✦ Contact Details",
+      "items": [
+        { "icon": "📍", "text": "West Bengal, Nadia, Majdia"   },
+        { "icon": "📧", "text": "nayanbiswas@gmail.com"         },
+        { "icon": "📞", "text": "+91 73639 83344"               },
+        { "icon": "🎂", "text": "Age 32"                        }
+      ]
+    },
+    "imagePlaceholder": {
+      "initial": "PB",
+      "label":   "✦ Priyas Biswas — Web Developer"
+    }
+  },
+
+  "ticker": [
+    "Web Development",
+    "Responsive Design",
+    "UI / UX Design",
+    "AI-Powered Builds",
+    "Café Websites",
+    "Clinic Websites",
+    "Restaurant Sites"
+  ],
+
+  "experience": {
+    "sectionLabel": "✦ What I Do",
+    "title":        "Experience &\nWork Process",
+    "cards": [
+      {
+        "role": "Web Developer",
+        "type": "Freelance · 2+ Years",
+        "desc": "Building complete websites for cafés, restaurants, clinics, and personal portfolios using modern AI-powered tools and platforms.",
+        "tags": ["Lovable", "Emergent", "AI Tools"]
+      },
+      {
+        "role": "Web Designer",
+        "type": "Freelance · Ongoing",
+        "desc": "Creating visually stunning, brand-aligned UI/UX designs. Focused on mobile-first, fast-loading, and conversion-optimized layouts.",
+        "tags": ["UI Design", "UX", "Branding"]
+      },
+      {
+        "role": "Tech Support",
+        "type": "Bug Fixing & Optimization",
+        "desc": "Using HTML, CSS, and basic coding to fix issues, customize features, and improve website performance for clients post-launch.",
+        "tags": ["HTML", "CSS", "Performance"]
+      }
+    ],
+    "processLabel": "✦ How I Work",
+    "process": [
+      { "num": "01", "title": "Requirement Discussion",  "desc": "Understanding the client's business, goals, and website needs."                                              },
+      { "num": "02", "title": "Design Planning",         "desc": "Creating layout, structure, and UI design tailored to the brand."                                           },
+      { "num": "03", "title": "Website Development",     "desc": "Building the website using modern development tools and AI-assisted platforms."                             },
+      { "num": "04", "title": "Customization & Fixes",   "desc": "Using coding knowledge to fix issues or customize features if required."                                    },
+      { "num": "05", "title": "Testing & Launch",        "desc": "Checking responsiveness, performance, usability — then deploying with full client support."                 }
+    ]
+  },
+
+  "skills": {
+    "sectionLabel": "✦ What I Know",
+    "title":        "Technical Skills",
+    "coreLabel":    "Core Skills",
+    "coreSkills": [
+      { "name": "AI-Assisted Website Development", "pct": 95 },
+      { "name": "Responsive Web Design",           "pct": 90 },
+      { "name": "UI / UX Design",                  "pct": 85 },
+      { "name": "Website Customization",           "pct": 88 },
+      { "name": "Performance Optimization",        "pct": 80 }
+    ],
+    "toolsLabel": "Tools & Platforms",
+    "tools": [
+      "Lovable", "Emergent", "HTML", "CSS",
+      "Basic JavaScript", "AI Tools", "WordPress",
+      "Mobile-First Design", "Business Websites",
+      "Bug Fixing", "Problem Solving"
+    ]
+  },
+
+  "education": {
+    "sectionLabel": "✦ My Background",
+    "title":        "Education",
+    "items": [
+      {
+        "year":   "10th Grade",
+        "name":   "Secondary Education",
+        "degree": "Completed secondary school education with a strong academic foundation."
+      },
+      {
+        "year":   "12th Grade",
+        "name":   "Higher Secondary Education",
+        "degree": "Completed higher secondary education (H.S.), West Bengal Board."
+      },
+      {
+        "year":   "College",
+        "name":   "College (Pursued)",
+        "degree": "Pursued college studies and chose to focus on practical web development experience and real-world client projects — building skills that matter most."
+      }
+    ]
+  },
+
+  "extras": {
+    "sectionLabel":  "✦ More About Me",
+    "title":         "Languages &\nInterests",
+    "langLabel":     "Languages I Speak",
+    "languages": [
+      { "name": "বাংলা",   "level": "Native"          },
+      { "name": "English", "level": "Fluent"           },
+      { "name": "हिंदी",   "level": "Conversational"  }
+    ],
+    "hobbyLabel": "Hobbies & Interests",
+    "hobbies": [
+      "🏍️ Motorcycles",
+      "🤖 AI & Tech",
+      "🎨 Design",
+      "📱 Content Creation",
+      "🌐 Web Exploration",
+      "📸 Photography"
+    ]
+  },
+
+  "contact": {
+    "sectionLabel": "✦ Let's Work Together",
+    "title":        "Get in Touch",
+    "intro":        "Have a project in mind? Whether it's a café website, restaurant, clinic, or a personal portfolio — I'd love to help bring your vision to life. Let's talk!",
+    "details": [
+      { "icon": "📍", "text": "West Bengal, Nadia, Majdia" },
+      { "icon": "📧", "text": "nayanbiswas@gmail.com"       },
+      { "icon": "📞", "text": "+91 73639 83344"             }
+    ],
+    "form": {
+      "title":       "Send a Message",
+      "namePlaceholder":    "e.g. Riya Sharma",
+      "emailPlaceholder":   "your@email.com",
+      "messagePlaceholder": "Tell me about your project…",
+      "submitText":  "Send Message ✦",
+      "submitEmail": "nayanbiswas@gmail.com"
+    }
+  },
+
+  "footer": {
+    "logoStar":   "✦",
+    "logoName":   "Priyas",
+    "logoSurname":"Biswas",
+    "copyright":  "© 2025 Priyas Biswas. All rights reserved.",
+    "location":   "West Bengal, India"
+  }
+}
